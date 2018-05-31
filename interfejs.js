@@ -16,15 +16,15 @@ function getFrames(joint_name, channel_name) {
 
 
 
-function wyswietl() {
+function showData() {
     if (Object.keys(Joints).length == 0) {
-        document.getElementById("krzysztof").innerHTML = "Jeszcze nie wczytano pliku"
+        document.getElementById("info").innerHTML = "Jeszcze nie wczytano pliku"
     } else {
         szukanyJoint=jointsNames[0];
         szukanyChannel=channelNames[0];
         znalezioneDane=getFrames(szukanyJoint, szukanyChannel);
         
-        document.getElementById("krzysztof").innerHTML = 
+        document.getElementById("info").innerHTML = 
             szukanyJoint + ", " + 
             szukanyChannel + ", "+
             (znalezioneDane == null ? "" : "Znaleziono tablicę o długości " + znalezioneDane.length)

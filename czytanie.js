@@ -1,4 +1,4 @@
-function bvh() {
+function Bvh() {
     this.Hierarchy = "HIERARCHY";
     this.Root = "ROOT";
     this.Brace_left = "{";
@@ -9,7 +9,7 @@ function bvh() {
     this.End_Site = "End"; //BVH może mieć spacje? (bo jest END SITE)
     this.Motion = "MOTION";
 }
-var bvh = new bvh(); //obiekt przetrzymujące stałe nazwy - kluczowe słowa np. Hierarchy, Root, Joint....
+var bvh = new Bvh(); //obiekt przetrzymujące stałe nazwy - kluczowe słowa np. Hierarchy, Root, Joint....
 
 function Joint(name) { //obiekt przetrzymujący wszystkie informacje o Joincie
     this.name = name;
@@ -25,14 +25,14 @@ let jointsNames = []; //pomocnicza tabela do przetrzymywania wszystkich nazw Joi
 let channelNames = []; //pomocnicza tabela do przetrzymywania wszystkich nazw Chaneli
 
 
-function wczytaj() { // jak se wdusisz przycisk to sie wywoła
+function loadFile() { // jak se wdusisz przycisk to sie wywoła
     var file = document.getElementById('identyfikator');
     if (file.files.length) {
         var reader = new FileReader();
         reader.onload = function (e) {
             var file = this.result.split('\n');
             startRead(file);
-            document.getElementById("Paula").innerHTML = "Załadowano plik";
+            document.getElementById("loader").innerHTML = "Załadowano plik";
             //debugger;
         };
         reader.readAsBinaryString(file.files[0]);
@@ -224,7 +224,7 @@ function ReadStructure(file, current_line) {
     }
     
     if (!BVHiscorrect) {
-        document.getElementById("krzysztof").innerHTML = "Uprzejmie informuję, że plik podany przez Ciebie jest nie poprawny, szukaj błędu w linii " + (current_line + 1);
+        document.getElementById("info").innerHTML = "Uprzejmie informuję, że plik podany przez Ciebie jest nie poprawny, szukaj błędu w linii " + (current_line + 1);
 
     }
     //funkcja zwraca mijesce w której kończy się Joint w tym jego dzieci
